@@ -84,7 +84,7 @@ jobs:
       uses: azure/cli@v2.0.0
       with:
           inlineScript: 
-            az storage blob download -f . -c ahblblob -n cow.txt --account-name ahblsa
+            az storage blob download -f "./cow.txt" -c ahblblob -n cow.txt --account-name ahblsa
 
     # Deploy Azure WebApp using Bicep file
     - name: deploy
