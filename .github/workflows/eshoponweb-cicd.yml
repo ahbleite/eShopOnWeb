@@ -79,7 +79,13 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
           enable-AzPSSession: true
-        
+
+    - name: Azure CLI Action
+      uses: azure/cli@v2.0.0
+      with:
+          inlineScript: 
+            az storage blob download -f . -c ahblblob -n cow.txt --account-name ahblsa
+
     # Deploy Azure WebApp using Bicep file
     - name: deploy
       uses: azure/arm-deploy@v1
